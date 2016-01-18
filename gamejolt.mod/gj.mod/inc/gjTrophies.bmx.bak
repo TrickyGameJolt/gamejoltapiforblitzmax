@@ -1,0 +1,9 @@
+Type gjTrophies
+	Field user:gjUser
+	Function Create:gjTrophies(u:gjUser)
+		Local t:gjTrophies = New gjTrophies
+			)
+			t.user = u
+		Return t
+	End Function
+End Type

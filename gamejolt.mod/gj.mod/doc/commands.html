@@ -1,0 +1,146 @@
+<html><head><title>This module contains the stuff you need to make your BlitzMax program connect to GameJolt reference</title>
+<link rel=stylesheet Type=text/css href='../../../../doc/bmxstyle.css'>
+</head><body>
+<table width=100% cellspacing=0><tr align=center><td class=small>&nbsp;</td>
+<td class=small width=1%><b>GameJolt.GJ:</b></td>
+<td class=small width=1%><a href=#types class=small>Types</a></td>
+<td class=small width=1%><a href=#modinfo class=small>Modinfo</a></td>
+<td class=small width=1%><a href='../../../../mod/gamejolt.mod/gj.mod/gj.bmx' class=small>Source</a></td>
+<td class=small>&nbsp;</td></tr></table>
+<h1>This module contains the stuff you need to make your BlitzMax program connect to GameJolt</h1>
+This module has been designed to take advantage of the Threaded mode, but as some programs can turn out a bit allergic to Threaded mode, I did enter a possibility to use this API unthreaded, however this will slow down your game when updates on GameJolt are done.
+<h2><a name=types></a>Types Summary</h2><table class=doc width=100%>
+<tr><td class=docleft width=1%><a href=#GJ>GJ</a></td><td class=docright>
+Used to setup some data for GameJolt.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#gjTable>gjTable</a></td><td class=docright>
+Features for fetching hi-scores.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#gjTrophy>gjTrophy</a></td><td class=docright>
+Type which contains the data about a trophy.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#gjUser>gjUser</a></td><td class=docright>
+Creates a user who can send his or her data to GameJolt.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#gjUserInfo>gjUserInfo</a></td><td class=docright>
+Fetches and stores the data about a user (not one who is logged in the game, just an other user. Did I explain this well?)
+</td></tr>
+</table>
+<h2
+ id=typesdet>Types
+</h2>
+<table class=doc width=100% cellspacing=3 id=GJ>
+<tr><td class=doctop colspan=2>Type GJ</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Used to setup some data for GameJolt.</td></tr>
+</table>
+<table class=doc width=90% align=center><tr ><th class=doctop colspan=2 align=left><a name=GJ_functions></a>Functions Summary</th></tr>
+<tr><td class=docleft width=1%><a href=#Create>Create</a></td><td class=docright>
+Enter your Game ID and Private key here!
+</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=Create>
+<tr><td class=doctop colspan=2>Function Create(privatekey$,gameid%)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Enter your Game ID and Private key here!</td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright>This function should ALWAYS be called first before using any other feature of this module!<p>Example:<br><pre>GJ.Create("e987a0113e029a49fba4865da681ff50",9840) </pre></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=gjTable>
+<tr><td class=doctop colspan=2>Type gjTable</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Features for fetching hi-scores.</td></tr>
+</table>
+<table class=doc width=90% align=center><tr ><th class=doctop colspan=2 align=left><a name=gjTable_methods></a>Methods Summary</th></tr>
+<tr><td class=docleft width=1%><a href=#AddGuestScore>AddGuestScore</a></td><td class=docright>
+Adds a guest score.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#AddScore>AddScore</a></td><td class=docright>
+Adds a new hi score.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#FetchScores>FetchScores</a></td><td class=docright>
+Retrieves the guest scores.
+</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=AddGuestScore>
+<tr><td class=doctop colspan=2>Method AddGuestScore(g$,score$,sort$,extra_data$)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Adds a guest score.</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=AddScore>
+<tr><td class=doctop colspan=2>Method AddScore(u:gjUser,sort$,score$,extra_data$)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Adds a new hi score.</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=FetchScores>
+<tr><td class=doctop colspan=2>Method FetchScores(limit%=10)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Retrieves the guest scores.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=gjTrophy>
+<tr><td class=doctop colspan=2>Type gjTrophy</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Type which contains the data about a trophy.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=gjUser>
+<tr><td class=doctop colspan=2>Type gjUser</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Creates a user who can send his or her data to GameJolt.</td></tr>
+</table>
+<table class=doc width=90% align=center><tr ><th class=doctop colspan=2 align=left><a name=gjUser_methods></a>Methods Summary</th></tr>
+<tr><td class=docleft width=1%><a href=#AddAchieved>AddAchieved</a></td><td class=docright>
+Send signal to GameJolt that trophy number 'id' has been achieved.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#AddAchievedByTitle>AddAchievedByTitle</a></td><td class=docright>
+Send signal to GameJolt that the achievement with title "title" has been achieved.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#Remove>Remove</a></td><td class=docright>
+Removes closes the session for this user, and removes him or her from your session.
+</td></tr>
+</table>
+<table class=doc width=90% align=center><tr ><th class=doctop colspan=2 align=left><a name=gjUser_functions></a>Functions Summary</th></tr>
+<tr><td class=docleft width=1%><a href=#Create>Create</a></td><td class=docright>
+Creates and authenticates a new user.
+</td></tr>
+<tr><td class=docleft width=1%><a href=#FetchTrophies>FetchTrophies</a></td><td class=docright>
+Fetches all trophies.
+</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=AddAchieved>
+<tr><td class=doctop colspan=2>Method AddAchieved:Byte(id%)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Send signal to GameJolt that trophy number 'id' has been achieved.</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=AddAchievedByTitle>
+<tr><td class=doctop colspan=2>Method AddAchievedByTitle:Byte(title$)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Send signal to GameJolt that the achievement with title "title" has been achieved.</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=Remove>
+<tr><td class=doctop colspan=2>Method Remove()</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Removes closes the session for this user, and removes him or her from your session.</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=Create>
+<tr><td class=doctop colspan=2>Function Create:gjUser(username$,token$)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Creates and authenticates a new user.</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=FetchTrophies>
+<tr><td class=doctop colspan=2>Function FetchTrophies(result:gjResult,data:Object)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Fetches all trophies.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=gjUserInfo>
+<tr><td class=doctop colspan=2>Type gjUserInfo</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Fetches and stores the data about a user (not one who is logged in the game, just an other user. Did I explain this well?)</td></tr>
+</table>
+<table class=doc width=90% align=center><tr ><th class=doctop colspan=2 align=left><a name=gjUserInfo_functions></a>Functions Summary</th></tr>
+<tr><td class=docleft width=1%><a href=#Create>Create</a></td><td class=docright>
+Creates a user and fetches his or her data.
+</td></tr>
+</table>
+<table class=doc width=100% cellspacing=3 id=Create>
+<tr><td class=doctop colspan=2>Function Create:gjUserInfo(nick$)</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Creates a user and fetches his or her data.</td></tr>
+</table>
+<br>
+<h2 id=modinfo>Module Information</h2>
+<table width=100%>
+<tr><th width=1%>ModuleName</th><td>GAMEJOLT.GJ</td></tr>
+<tr><th width=1%>Title</th><td>GameJolt API module for BlitzMax</td></tr>
+<tr><th width=1%>Origially created by</th><td>Polan</td></tr>
+<tr><th width=1%>Converted into a module by</th><td>Jeroen P. Broks aka Tricky (Phantasar Productions)</td></tr>
+<tr><th width=1%>License</th><td>Use it as you see fit</td></tr>
+<tr><th width=1%>Module Initial Release</th><td>Jan 1st, 2013</td></tr>
+</body></html>
