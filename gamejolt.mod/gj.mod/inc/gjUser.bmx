@@ -95,7 +95,7 @@ Type gjUser
 							If tr.image Print "Success" Else Print "Failed!"
 						Else
 							Print "Skipped"
-							endif
+							EndIf
 					Case "achieved"
 						If(str[1] = "false")
 							tr.achieved = 0
