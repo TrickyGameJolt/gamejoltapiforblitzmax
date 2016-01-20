@@ -44,6 +44,12 @@ Include "inc/gjTrophy.bmx"
 Include "inc/gjScore.bmx"
 Include "inc/gjTable.bmx"
 
+
+Rem
+bbdoc: When set true, it will dump some stuff received from GJ onto the screen. If not needed, keep it on False.
+End Rem
+Global GJDebug:Int
+
 Rem
 bbdoc:Used to setup some data for GameJolt
 End Rem

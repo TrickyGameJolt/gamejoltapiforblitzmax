@@ -1,4 +1,10 @@
 Rem
+bbdoc: If set to True, it will skip loading the trophy images (especially in games with a big trophy list this can slow down the login process).
+about: Of course, only set this to fase, if you do need the images from the server. I recommend to have them stored in the off-line assets in stead if you can.
+End Rem
+Global GJImageSkip:Byte = True
+
+Rem
 bbdoc:Creates a user who can send his or her data to GameJolt
 End Rem
 Type gjUser
@@ -83,7 +89,13 @@ Type gjUser
 						tr.difficulty = str[1]
 					Case "image_url"
 						tr.image_url = str[1]
-						tr.image = LoadImage(LoadBank("http::"+Right(tr.image_url,Len(tr.image_url)-7)))
+						If gjdebug WriteStdout "GJImageLoad>"+tr.image_url+" ... "
+						If Not gjimageskip 
+							tr.image = LoadImage(LoadBank("http::"+Right(tr.image_url,Len(tr.image_url)-7)));
+							If tr.image Print "Success" Else Print "Failed!"
+						Else
+							Print "Skipped"
+							endif
 					Case "achieved"
 						If(str[1] = "false")
 							tr.achieved = 0

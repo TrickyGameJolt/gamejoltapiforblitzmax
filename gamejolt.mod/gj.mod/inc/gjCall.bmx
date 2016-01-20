@@ -31,17 +31,20 @@ Type gjCall
 	Function Call:Object(data:Object)
 		Local c:gjCall = gjCall(data)
 			'Print c.url
+			If gjdebug Print "GJCall>"+c.url
 			c.stream = OpenStream("http::"+Right(c.url,Len(c.url)-7))
 			If(c.stream)
 				Local r:gjResult = New gjResult
 				Local str$,first:Byte=True
 				While(Not Eof(c.stream))
 					str = ReadLine(c.Stream)
+					If gjdebug Then Print "GJ>"+str
 					ListAddLast(r.atr,str)
 					If(str = "success:~qtrue~q") Then r.success = True
 				Wend
-				CloseStream(c.stream)
+				CloseStream(c.stream)				
 				If(c.onFinish)
+					If gjdebug Print "Finalizing GJ call"
 					c.onFinish(r,c.onFinishData)
 				EndIf
 			EndIf
