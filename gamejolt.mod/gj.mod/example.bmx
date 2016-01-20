@@ -6,7 +6,7 @@ Import GameJolt.GJ
 Graphics 800,600
 
 GJ.Create("e987a0113e029a49fba4865da681ff50",9840) 'have to be called first with privatekey,gameid
-Global u:gjUser = gjUser.Create("Tricky","53aa89") 'login user
+Global u:gjUser = gjUser.Create("User","token") 'login user
 Global ui:gjUserInfo = gjUserInfo.Create("CROS") 'you can fetch random users if you want. For example, for highscores.
 
 While Not KeyHit(key_escape)
